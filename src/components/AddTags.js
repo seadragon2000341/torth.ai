@@ -15,7 +15,13 @@ function AddTags({ setTask, task }) {
   };
 
   return (
-    <div className="tags-form">
+    <div>
+      <input
+        className="tags-line"
+        type="text"
+        placeholder="Press enter to add tags!"
+        onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
+      />
       <ul id="tags">
         {task.tags &&
           task.tags.map((tag, index) => (
@@ -27,11 +33,7 @@ function AddTags({ setTask, task }) {
             </li>
           ))}
       </ul>
-      <input
-        type="text"
-        placeholder="Press enter to add tags!"
-        onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
-      />
+    
     </div>
   );
 }

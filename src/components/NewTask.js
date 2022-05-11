@@ -25,37 +25,37 @@ function NewTask({ show, handleClose, addTask }) {
     <div className={showHideClassName}>
       <section className="modal-main">
         <form
+          className="form"
           onSubmit={onSubmit}
           onKeyPress={(e) => {
             e.key === "Enter" && e.preventDefault();
           }}
         >
-          <div>
-            Task name
-            <input
-              placeholder="Enter task to add"
-              required
-              type="text"
-              name="name"
-              className="form-control"
-              onChange={onChange}
-            />
-          </div>
-         <div>Due Date
           <input
-            type="date"
-            name="date"
-            onChange={onChange}
+            placeholder="Your New Task"
             required
-            className="form-control"
+            type="text"
+            name="name"
+            className="text-line"
+            onChange={onChange}
+          />
+          <div>
+            Due Date
+            <input
+              className="date-line"
+              type="date"
+              name="date"
+              onChange={onChange}
+              required
             />
-            </div>
-          <label>Tags:</label>
+            
+          </div>
+          
           <AddTags setTask={setTask} task={task} />
-          <button type="button" onClick={handleClose}>
+          <button type="button" className ="new-1" onClick={handleClose}>
             Close
           </button>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="new" >
             Submit
           </button>
         </form>

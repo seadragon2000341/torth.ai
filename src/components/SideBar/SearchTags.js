@@ -13,28 +13,24 @@ function SearchTags({ tagFilter, setTagFilter }) {
 
   return (
     <div>
-      Filter tags:{" "}
-      <div className="tags-form">
-        <ul id="tags">
-          {tagFilter &&
-            tagFilter.map((tag, index) => (
-              <li key={index} className="tag">
-                <span className="tag-title">{tag}</span>
-                <span
-                  className="tag-close-icon"
-                  onClick={() => deleteTag(index)}
-                >
-                  x
-                </span>
-              </li>
-            ))}
-        </ul>
-        <input
-          type="text"
-          placeholder="Press enter to add filtering tags"
-          onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
-        />
-      </div>
+      <input
+        className="tags-line"
+        type="text"
+        placeholder="Press enter to add filtering tags"
+        onKeyUp={(event) => (event.key === "Enter" ? addTags(event) : null)}
+      />
+
+      <ul id="tags">
+        {tagFilter &&
+          tagFilter.map((tag, index) => (
+            <li key={index} className="tag">
+              <span className="tag-title">{tag}</span>
+              <span className="tag-close-icon" onClick={() => deleteTag(index)}>
+                x
+              </span>
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }

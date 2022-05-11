@@ -1,12 +1,16 @@
 import React from "react";
 
-export default function FilterButtons({ setStatusFilter }) {
+export default function FilterButtons({ setStatusFilter, statusFilter }) {
   const filterNames = ["All", "Active", "Completed"];
+
   const filterButtons = filterNames.map((name) => (
-    <button type="button" className="btn" onClick={() => setStatusFilter(name)}>
+    <button
+      type="button"
+      className={statusFilter == name ? "btn-1" : "btn"}
+      onClick={() => setStatusFilter(name)}
+    >
       {name}
-      </button>
-     
+    </button>
   ));
 
   return <div className="filters">Filter Status By: {filterButtons}</div>;

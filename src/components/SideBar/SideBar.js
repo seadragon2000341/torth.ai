@@ -1,14 +1,20 @@
 import FilterButtons from "./FilterButtons";
 import SearchTags from "./SearchTags";
 
-function SideBar({ setStatusFilter, tagFilter, setTagFilter, setSideBar}) {
+function SideBar({ setStatusFilter, tagFilter, setTagFilter, setSideBar, statusFilter }) {
   return (
-    <div className="SideBar">
-      <button className = "close" onClick={()=>setSideBar(false)}>close</button>
-      <FilterButtons setStatusFilter={setStatusFilter} />
-      <div>
-        <SearchTags tagFilter={tagFilter} setTagFilter={setTagFilter} />
-      </div>
+    <div className="modal display-block">
+      <div className="SideBar">
+        <div className = "SideBar-1">
+        <span className="close" onClick={() => setSideBar(false)}>
+          X
+        </span>
+        <FilterButtons setStatusFilter={setStatusFilter} statusFilter={statusFilter} />
+        <div>
+          <SearchTags tagFilter={tagFilter} setTagFilter={setTagFilter} />
+        </div>
+        </div>
+       </div>
     </div>
   );
 }

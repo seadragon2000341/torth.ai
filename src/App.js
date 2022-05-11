@@ -53,7 +53,6 @@ function App() {
 
   return (
     <div>
-      {console.log(width)}
       <div className="main">
         {showSideBar && width < breakpoint ? (
           <SideBar
@@ -61,15 +60,19 @@ function App() {
             tagFilter={tagFilter}
             setTagFilter={setTagFilter}
             setSideBar={setSideBar}
+            statusFilter={statusFilter}
           ></SideBar>
         ) : (
-          <button className="dropdown dropdown-1" onClick={() => setSideBar(true)}>
-            SideBar
-          </button>
+          <div className="center" onClick={() => setSideBar(true)}>
+            <div></div>
+          </div>
         )}
         <h3>Welcome back,</h3>
         <p>You've got these tasks remaining</p>
-        <FilterButtons setStatusFilter={setStatusFilter} />
+        <FilterButtons
+          setStatusFilter={setStatusFilter}
+          statusFilter={statusFilter}
+        />
         <div>
           <SearchTags tagFilter={tagFilter} setTagFilter={setTagFilter} />
         </div>
